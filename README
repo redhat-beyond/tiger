@@ -1,0 +1,7 @@
+install vagtant
+install virtuallbox
+run "vagrant up"
+Make sure you are able to login to the spawn machine. Run: “vagrant ssh”
+Logout from that machine
+Tear down the machine. Run: “vagrant destroy -f”
+
