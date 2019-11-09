@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Template</title>
+   </head>
+<html>
+	<body>
+		<header>
+			<div class="container">
+			<strong><nav>
+				<ul class="menu">
+					<li><a href="{{ url_for('Home') }}"> Home </a></li>
+					<li><a href="{{url_for('Subscribe') }}">Subscribe</a></li>
+				</ul>
+			</nav></strong>
+			</div>
+		</header>
+		<div class="container">
+			{% block content %}
+			{% endblock %}
+		</div>
+	</body>
+</html>
