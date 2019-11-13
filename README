@@ -4,4 +4,6 @@ run "vagrant up"
 Make sure you are able to login to the spawn machine. Run: “vagrant ssh”
 Logout from that machine
 Tear down the machine. Run: “vagrant destroy -f”
-
+our best practices:
+Do not forget to mention in the issue that you took over
+Do not forget to mention the issue # in your PR
