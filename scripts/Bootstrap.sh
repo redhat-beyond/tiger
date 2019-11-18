@@ -1,6 +1,7 @@
 #!/bin/bash
 dnf -y update
 dnf -y install python3-pip
-pip3 install --user Flask
+pip3 install Flask
 
-python3 /vagrant/scripts/app.py
+chmod 755 /vagrant/app.py
+/vagrant/app.py
