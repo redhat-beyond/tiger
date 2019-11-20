@@ -8,8 +8,10 @@ Instruction for spin VM and destroy:
 6. Run 'vagrant destroy -f'
 #tiger
 =======
-
-our best practices:
 Do not forget to mention in the issue that you took over
 
 Do not forget to mention the issue # in your PR
+
+
+Our best practices: Ask google questions and solving problems with a lot of patience.  
+
