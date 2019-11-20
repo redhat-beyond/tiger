@@ -1,4 +1,4 @@
-# tiger 
+
 Instruction for spin VM and destroy: 
 1. Install vagrant 
 2. Install virtualbox 
@@ -7,9 +7,11 @@ Instruction for spin VM and destroy:
 5. In the end of work, logout from the machine 
 6. Run 'vagrant destroy -f'
 #tiger
-=======
+===========
 
-our best practices:
-Do not forget to mention in the issue that you took over
+Best practices:
+* Ask questions in the Slack group
+* Scroll through the Git Guide
 
-Do not forget to mention the issue # in your PR
+
+
