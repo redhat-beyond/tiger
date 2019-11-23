@@ -6,7 +6,7 @@ Instruction for spin VM and destroy:
 4. Run 'vagrant ssh'
 5. Open the browser and type "localhost:5000"
 6. In the end of work, logout from the machine 
-7. Run 'vagrant destroy -f'
+7. Run 'vagrant destroy -f'<br/>
 #tiger
 ======= <br/>
 Do not forget to mention in the issue that you took over
