@@ -8,8 +8,7 @@ Instruction for spin VM and destroy:
 6. In the end of work, logout from the machine 
 7. Run 'vagrant destroy -f'
 #tiger
-</br>
-=======
+======= <br/>
 Do not forget to mention in the issue that you took over
 
 Do not forget to mention the issue # in your PR
