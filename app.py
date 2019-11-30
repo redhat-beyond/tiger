@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-
 @app.route('/')
-def hello_world():
-    return 'Hello World'
+def Home():
+    return render_template('Home.html')
+	
+@app.route('/')
+def Subscribe():
+    return render_template('#')
 
 
 if __name__ == '__main__':
