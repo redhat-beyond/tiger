@@ -6,7 +6,5 @@ python:
 # command to install dependencies
 install:
   - pip install flake8
-  - flake8 .
-
-script:
-  - Hello.py  
+before_script:
+  - "flake8 ."
