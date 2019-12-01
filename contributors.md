@@ -1,12 +1,12 @@
 # Tiger contributors
-- @BarakMerdler
+- @Barak Merdler
    - Added script to install mysql
    - Chenge memory to 1024 for mysql can run
 
-- @lioramilbaum
+- @Liora Milbaum
    - Tiger Project Manager
 
-- @MaorW
+- @Maor Weiss
    - Added .travis.yml file
 
 - @morbitton
@@ -20,7 +20,7 @@
 - @octopusShiva
    - Added entries .gitignore
 
-- @Omeramsc
+- @Omer
    - Added the gitignore file
    - flask app with a provision to run on vagrant startup
    - Moved flask app to operate in background & created requirements file
