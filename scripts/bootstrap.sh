@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-mv /vagrant/mysql-community.repo /etc/yum.repos.d/
+cp /vagrant/mysql-community.repo /etc/yum.repos.d/
 dnf -y update
 dnf -y install python3-pip mysql-community-server
 systemctl enable mysqld.service
