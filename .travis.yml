@@ -7,3 +7,6 @@ python:
 install:
   - pip install flake8
   - flake8 .
+
+script:
+  - Hello.py  
