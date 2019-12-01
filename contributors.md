@@ -6,6 +6,9 @@
 - @lioramilbaum
    - Tiger Project Manager
 
+- @MaorW
+   - Added .travis.yml file
+
 - @morbitton
    - Update README.md file
    - Added contributors file
