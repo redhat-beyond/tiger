@@ -11,3 +11,4 @@ Instruction for spin VM and destroy:
 # Our best practices:
 * Ask questions in the Slack group.
 * Scroll any command at the Git Guide and learn how to use it.
+
