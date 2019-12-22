@@ -13,6 +13,9 @@ def Home():
 def contact_us():
     return render_template('/contact_us.html')
 
+@app.route('/messages_view')
+def messages_view():
+    return render_template('/messages_view.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
