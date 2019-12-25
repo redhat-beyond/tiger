@@ -12,6 +12,8 @@ mysqladmin -u root -p"$old_pw" password "$new_pw"
 mysql -u root -p"$new_pw" <<MYSQL_SCRIPT
 CREATE DATABASE tiger;
 USE tiger;
+CREATE TABLE users(username VARCHAR(20), password VARCHAR(100) NOT NULL, create_date TIMESTAMP NOT NULL, PRIMARY KEY(username));
+CREATE TABLE messages(username VARCHAR(20),create_date TIMESTAMP NOT NULL,content VARCHAR(100) NOT NULL,FOREIGN KEY(username) REFERENCES users(username));
 MYSQL_SCRIPT
 
 chmod 755 /vagrant/app.py
