@@ -2,15 +2,15 @@
 <html lang="he">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="/templates/css/cssHome.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/cssHome.css') }}">
 
 
 </head>
 
 <body>
     <header>
-        <a href="Home.html" target=_self>
-            <img src="/templates/pic/logo_1.png"  id="homeLogo" alt="RedHat&MTA">
+        <a href="{{ url_for('home') }}" target=_self>
+            <img src="{{ url_for('static', filename='pic/logo_1.png') }}"  id="homeLogo" alt="RedHat&MTA">
         </a>
     </header>
     <nav>
