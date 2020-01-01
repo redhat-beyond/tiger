@@ -25,8 +25,6 @@ def sign_up():
 		password = req.get("password")
 		session["EMAIL"]=email
 		session["PASSWORD"]=password
-		print(session["EMAIL"])
-		print(session)
 		return render_template('Home.html',email=session["EMAIL"])
 	return render_template('/sign-up.html')
 
