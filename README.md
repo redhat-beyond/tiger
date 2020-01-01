@@ -33,7 +33,7 @@ Instruction for spin VM and destroy:
 - Name: tiger + File format: pem
 - Move the file from Downloads to ~/.ssh
 - Windows users please address the additional steps before you countine
-- run 'vagrant up aws'
+- run 'vagrant up stage'
 
 # Additional steps for Windows users
 
