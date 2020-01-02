@@ -9,6 +9,10 @@ Instruction for spin VM and destroy:
 5. In the end of work, logout from the machine
 6. Run 'vagrant destroy -f'
 
+When run 'vagrant up' choose environment (stage or dev)
+if you choose dev then choose OS (fedora or ubuntu)
+When run 'vagrant ssh' or 'vagrant destroy -f' choose the same environment and the same OS
+
 # Our best practices:
 
 - Ask questions in the Slack group.
