@@ -16,6 +16,10 @@ Instruction for spin VM and destroy:
 - When you ssh into machine specify the name of the machine [ubuntu|fedora|stage]'
 - When you destroy -f machine [ubuntu|fedora|stage]
 
+When run 'vagrant up' choose environment (stage or dev)
+if you choose dev then choose OS (fedora or ubuntu)
+When run 'vagrant ssh' or 'vagrant destroy -f' choose the same environment and the same OS
+
 # Our best practices:
 
 - Ask questions in the Slack group.
