@@ -10,10 +10,24 @@ end
 Vagrant.configure("2") do |config|
 
 
-if chosen_environment == "dev"
-puts "I'm in dev"
+  if chosen_environment == "dev"
+  puts "I'm in dev"
+  flag = true
+  while flag
+  puts "Input opertion system ['ubuntu' or 'fedora']: "
+  chosen_operrtion = STDIN.gets.chomp
+    if chosen_operrtion == "ubuntu"
+      opertion_system = "ubuntu/bionic64"
+      flag = false
+    end
+    if chosen_operrtion == "fedora"
+      opertion_system = "fedora/30-cloud-base"
+      flag = false
+    end
+  end
+  
   config.vm.define "dev" do |dev|
-   config.vm.box = "fedora/30-cloud-base"
+   config.vm.box = opertion_system
    config.vm.provision "shell", path:"scripts/bootstrap.sh"
    config.vm.network "forwarded_port", guest: 5000, host: 5000
    config.vm.provider "virtualbox" do |v|
