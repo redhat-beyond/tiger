@@ -59,7 +59,7 @@ logger.debug(conn)
 messages = readmessages(conn,"SELECT * FROM messages")
 
 insertmessageintotable(conn, logger, 'morbi', 'TIMESTAMP', 'How u doing?')
-messages = readmessages(conn,"SELECT * FROM messages")
+messages = readmessages(conn, "SELECT * FROM messages")
 logger.debug("finish insert messages")
 
 
