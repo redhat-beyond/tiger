@@ -2,25 +2,27 @@ def definedlog(fileHandler):
     import logging
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.ERROR)
-    # create a file handler
+    
     handler = logging.FileHandler(fileHandler)
     handler.setLevel(logging.ERROR)
-    # create a logging format
+    
     formatter = logging.Formatter( '%(asctime)s - %(name)s - %(levelname)s : %(message)s')
     handler.setFormatter(formatter)
-    # add the file handler to the logger
+    
     logger.addHandler(handler)
     return logger
 
 
 def connect_db(host, user, password, database):
+
     import mysql.connector
     connection= mysql.connector.connect(
-      user= user, password=password, host=host, database=database)
+    user= user, password=password, host=host, database=database)
     return connection
 
 
 def readmessages(conn, query):
+
     message = conn.cursor()
     message.execute(query)
     view = message.fetchall()
@@ -31,11 +33,10 @@ def readmessages(conn, query):
 
 
 def insertmessageintotable (conn, logger, username, TIMESTAMP, content):
-    conn = connect_db( 'localhost', 'root', 'LoginPass@@11223344', 'messages' )
+    conn = connect_db ('localhost', 'root', 'LoginPass@@11223344', 'messages')
     try:
             cursor = conn.cursor()
-            mysql_insert_query = """INSERT INTO messages (username, TIMESTAMP, content) 
-                                    VALUES (%s, %s, %s, %s) """
+            mysql_insert_query = """INSERT INTO messages (username, TIMESTAMP, content) VALUES (%s, %s, %s, %s) """
 
             recordmessages = (username, TIMESTAMP, content)
             cursor.execute(mysql_insert_query, recordmessages)
@@ -49,12 +50,12 @@ def insertmessageintotable (conn, logger, username, TIMESTAMP, content):
         if (conn.is_connected()):
             cursor.close()
             conn.close()
-            print( 'MySQL connection is closed' )
+            print ('MySQL connection is closed')
 
 
-logger = definedlog( 'log.log' )
-conn=connect_db( 'localhost', 'root', 'LoginPass@@11223344', 'messages' )
-print(conn)
+logger = definedlog('log.log')
+conn=connect_db ('localhost', 'root', 'LoginPass@@11223344', 'messages')
+print (conn)
 logger.debug(conn)
 messages = readmessages(conn, 'SELECT * FROM messages')
 
