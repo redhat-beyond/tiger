@@ -2,33 +2,28 @@ def definedlog(fileHandler):
     import logging
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.ERROR)
-
     # create a file handler
     handler = logging.FileHandler(fileHandler)
     handler.setLevel(logging.ERROR)
-
     # create a logging format
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s : %(message)s')
     handler.setFormatter(formatter)
-
     # add the file handler to the logger
     logger.addHandler(handler)
     return logger
 
+
 def connect_db(host, user, password, database):
-
     import mysql.connector
-    from mysql.connector import Error
-
     connection= mysql.connector.connect(
       user= user, password=password, host=host, database=database)
     return connection
+
 
 def readmessages(conn, query):
     message = conn.cursor()
     message.execute(query)
     view = message.fetchall()
-
     for row in view:
         print(row)
         logger.debug(row)
@@ -37,7 +32,6 @@ def readmessages(conn, query):
 
 def insertmessageintotable (conn, logger, username, TIMESTAMP, content):
     conn = connect_db('localhost', 'root', 'LoginPass@@11223344', 'messages')
-
     try:
             cursor = conn.cursor()
             mysql_insert_query = """INSERT INTO messages (username, TIMESTAMP, content) 
@@ -50,6 +44,7 @@ def insertmessageintotable (conn, logger, username, TIMESTAMP, content):
 
     except conn.connector.Error as error:
             logger.error("Failed to insert into MySQL table {}".format(error))
+
     finally:
         if (conn.is_connected()):
             cursor.close()
@@ -58,14 +53,13 @@ def insertmessageintotable (conn, logger, username, TIMESTAMP, content):
 
 
 logger = definedlog('log.log')
-
-conn=connect_db('localhost','root','LoginPass@@11223344','messages')
+conn=connect_db('localhost', 'root', 'LoginPass@@11223344', 'messages')
 print(conn)
 logger.debug(conn)
 messages = readmessages(conn,"SELECT * FROM messages")
 
 insertmessageintotable(conn, logger, 'morbi', 'TIMESTAMP', 'How u doing?')
 messages = readmessages(conn,"SELECT * FROM messages")
-logger.debug("finish insert message")
+logger.debug("finish insert messages")
 
 
