@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="signStyle.css">
+        <meta charset="UTF-8">
+        <style>
+            .up{color: deepskyblue;
+                text-align: left}
+
+            .in{color: deepskyblue;
+                text-align: left;
+            }
+            .main{
+                width: 600px;
+                margin-right: auto;
+                margin-left: 500px;
+            }
+            .lbl1{float:left;
+                width:20%;
+                font-family: david;
+
+            }
+            p{overflow: auto;
+                margin-bottom: 1%;
+            }
+            .sign_up{
+                width: 100%;
+                margin-bottom: 200%;
+            }
+            .sign_in{
+                width: 100%;
+            }
+
+            .txt{float:left;
+                width:20%;
+                background-color: azure;
+                margin-left: 5px;
+            }
+            .clear{
+                clear:both;
+            }
+        </style>
+        <title> Sign-in </title>
+    </head>
+    <body>
+      {% extends "layout.html" %}
+      {% block content %}
+       <div class="main"> 
+        <div class="sign_in">
+            <h2 class="in"> have an account? Sign-in here</h2>
+            <form name="registration" method="post" action=" " >
+                <p>
+                    <lable class="lbl1"> Enter Email </lable>
+                    <input class="txt" name="email" type="email" placeholder="Enter Email">
+                </p>
+
+                <p>
+                    <lable class="lbl1"> Enter Password  </lable>
+                    <input class="txt" name="password" type="password" placeholder="Enter Password">
+                </p>
+                <p><input type="checkbox" name="checkbox"> remember me</p>
+
+                <p style="float:left;margin-left: 1%;"><input type="reset" name="reset" value="reset"></p>
+
+                <p style="float:left; margin-left: 5%"><input type="submit" name="submit1" value="submit"></p>
+            </form>
+        </div>
+        <br><br><br>
+        
+        <div class="sign_up">
+
+            <h2 class="up">Don't have an account? Sign-up here</h2>
+            <form name="sign-in" method="post" action=" " >
+
+                <p>
+                    <lable class="lbl1"> Enter User Name </lable>
+                    <input class="txt" name="username" type="txt" placeholder="Enter user name">
+
+                </p>
+
+                <p><lable class="lbl1"> Enter Email </lable><input class="txt" name="email" type="email" placeholder="Enter Email">
+                    
+                </p>
+
+                <p>
+                <lable class="lbl1"> Enter Password  </lable>
+                <input class="txt" name="password" type="password" placeholder="Enter Password">
+                </p>
+
+                <p style="float:left;margin-left: 1%;"><input type="reset" name="reset" value="reset"></p>
+
+                <p style="float:left; margin-left: 5%"><input type="submit" name="submit1" value="submit"></p>
+            </form>
+        </div>
+        </div>
+        {% endblock %}
+    </body>
+</html>
