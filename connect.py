@@ -56,10 +56,8 @@ logger = definedlog('log.log')
 conn=connect_db('localhost', 'root', 'LoginPass@@11223344', 'messages')
 print(conn)
 logger.debug(conn)
-messages = readmessages(conn,"SELECT * FROM messages")
+messages = readmessages(conn, "SELECT * FROM messages")
 
 insertmessageintotable(conn, logger, 'morbi', 'TIMESTAMP', 'How u doing?')
 messages = readmessages(conn, "SELECT * FROM messages")
 logger.debug("finish insert messages")
-
-
