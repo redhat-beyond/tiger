@@ -4,17 +4,17 @@ Instruction for spin VM and destroy:
 
 1. Install vagrant
 2. Install virtualbox
-3. Run 'vagrant up [fedora OR ubuntu OR stage]'
-4. Run 'vagrant ssh [fedora OR ubuntu OR stage]'
+3. Run 'vagrant up [ubuntu|fedora|stage]'
+4. Run 'vagrant ssh [ubuntu|fedora|stage]'
 5. In the end of work, logout from the machine
-6. Run 'vagrant destroy -f [fedora OR ubuntu OR stage]'
+6. Run 'vagrant destroy -f [ubuntu|fedora|stage]'
 
 #Choosing OS
 
 - For fedora OS run 'vagrant up fedora'
 - For ubuntu OS run 'vagrant up ubuntu'
-- When you ssh into machine specify the name of the machine [fedora OR ubuntu OR stage]'
-- When you destroy -f machine [fedora OR ubuntu OR stage]
+- When you ssh into machine specify the name of the machine [ubuntu|fedora|stage]'
+- When you destroy -f machine [ubuntu|fedora|stage]
 
 # Our best practices:
 
@@ -33,11 +33,10 @@ Instruction for spin VM and destroy:
 - Name: tiger + File format: pem
 - Move the file from Downloads to ~/.ssh
 - Windows users please address the additional steps before you countine
-- run 'vagrant up stage'
+- run 'vagrant up aws'
 
 # Additional steps for Windows users
 
-- Move to the tiger folder
 - run those commands-
   vagrant plugin install --plugin-version 1.0.1 fog-ovirt
   vagrant plugin install vagrant-aws
