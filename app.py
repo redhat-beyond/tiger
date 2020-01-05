@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 from flask import Flask, render_template, request
-import app_functions
+import logging, mysql.connector
 
 app = Flask(__name__)
 
 
 def definedlog(fileHandler):
-    import logging
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.ERROR)
     handler = logging.FileHandler(fileHandler)
@@ -19,10 +18,10 @@ def definedlog(fileHandler):
 
 
 def connect_db(host, user, password, database):
-    import mysql.connector
     connection= mysql.connector.connect(
-      user= user, password=password, host=host, database=database)
+      user = user, password = password, host = host, database = database)
     return connection
+
 
 def readmessages(conn, query):
     message = conn.cursor()
