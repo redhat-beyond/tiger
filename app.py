@@ -19,8 +19,8 @@ def definedlog(fileHandler):
 
 
 def connect_db(host, user, password, database):
-    connection= mysql.connector.connect(
-      user = user, password = password, host = host, database = database)
+    connection = mysql.connector.connect(
+      user=user, password=password, host=host, database=database)
     return connection
 
 
@@ -30,7 +30,6 @@ def readmessages(conn, query):
     view = message.fetchall()
     for row in view:
         print(row)
-        logger.debug(row)
     return view
 
 
