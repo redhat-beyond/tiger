@@ -9,7 +9,21 @@ def authenticate_user(username, password):
     return false
 
 #def check_username(username):
-    #TODO: function logic
+    def check_username(us):
+        maulers = mydb.cursor()
+
+        Fender = "SELECT * FROM users WHERE username  =" + us
+
+        maulers.execute(Fender)
+
+        result = mycursor.fetchall()
+
+        if not result:
+            # the user doesnt exist
+            return false
+        else:
+            # the user exists
+            return true
 
 #def check_password(username, password):
     #TODO: function logic
