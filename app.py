@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
+
 from flask import Flask, render_template, request
 import logging
-import mysql.connector
+import mysql
 
 app = Flask(__name__)
 
@@ -12,7 +13,7 @@ def definedlog(fileHandler):
     handler = logging.FileHandler(fileHandler)
     handler.setLevel(logging.ERROR)
     formatter = logging.Formatter(
-        '%(asctime)s - %(name)s - %(levelname)s : %(message)s')
+            '%(asctime)s - %(name)s - %(levelname)s : %(message)s')
     handler.setFormatter(formatter)
     logger.addHandler(handler)
     return logger
@@ -20,18 +21,18 @@ def definedlog(fileHandler):
 
 def connect_db():
     connection = mysql.connector.connect(
-      user='root', password='LoginPass@@11223344',
-      host='localhost', database='tiger')
+            user='root', password='LoginPass@@11223344',
+            host='localhost', database='tiger')
     return connection
 
 
 def readmessages():
-    connect_db()
+    connection = connect_db()
     message = connection.cursor()
     message.execute("SELECT * FROM tiger.messages")
     view = message.fetchall()
-    #for row in view://will change after implement of the view_massages.html 
-    #   print(row)
+    # for row in view will change after implement of the view_massages.html
+    # print(row)
     return view
 
 
@@ -50,7 +51,7 @@ def contact_us():
 def log_in():
     if request.method == 'POST':
         return render_template('Home.html')
-  return render_template('/sign_up.html')
+    return render_template('/sign_up.html')
 
 
 @app.route('/log_out')
