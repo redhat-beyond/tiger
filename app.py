@@ -5,6 +5,8 @@ import logging
 
 app = Flask(__name__)
 
+conn = connect_db('localhost', 'root', 'LoginPass@@11223344', 'messages')
+messages = readmessages(conn, "SELECT * FROM messages")
 
 def definedlog(fileHandler):
     logger = logging.getLogger(__name__)
@@ -30,8 +32,8 @@ def view_messages():
     message = connection.cursor()
     message.execute("SELECT * FROM tiger.messages")
     view = message.fetchall()
-    for row in view:
-        print(row)
+    # for row in view: //will change after implement of the view_massages.html 
+    #   print(row)
     return view
 
 
