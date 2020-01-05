@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from flask import Flask, render_template, request
-import logging, mysql.connector
+import logging
+import mysql.connector
 
 app = Flask(__name__)
 
