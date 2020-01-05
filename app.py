@@ -5,6 +5,35 @@ import app_functions
 app = Flask(__name__)
 
 
+def definedlog(fileHandler):
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.ERROR)
+    handler = logging.FileHandler(fileHandler)
+    handler.setLevel(logging.ERROR)
+    formatter = logging.Formatter(
+        '%(asctime)s - %(name)s - %(levelname)s : %(message)s')
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    return logger
+
+
+def connect_db(host, user, password, database):
+    import mysql.connector
+    connection= mysql.connector.connect(
+      user= user, password=password, host=host, database=database)
+    return connection
+
+def readmessages(conn, query):
+    message = conn.cursor()
+    message.execute(query)
+    view = message.fetchall()
+    for row in view:
+        print(row)
+        logger.debug(row)
+    return view
+
+
 @app.route('/')
 def Home():
     return render_template('Home.html')
