@@ -9,6 +9,7 @@
 
 - @Maor Weiss
    - Added .travis.yml file
+   - Arranged the static files into subfolders
 
 - @morbitton
    - Update README.md file
