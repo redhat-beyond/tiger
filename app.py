@@ -5,8 +5,6 @@ import mysql.connector
 
 app = Flask(__name__)
 
-conn = connect_db('localhost', 'root', 'LoginPass@@11223344', 'messages')
-messages = readmessages(conn, "SELECT * FROM messages")
 
 def definedlog(fileHandler):
     logger = logging.getLogger(__name__)
@@ -20,15 +18,16 @@ def definedlog(fileHandler):
     return logger
 
 
-def connect_db(host, user, password, database):
+def connect_db():
     connection = mysql.connector.connect(
-      user=user, password=password, host=host, database=database)
+      user='root', password='LoginPass@@11223344', host='localhost', database='tiger')
     return connection
 
 
-def readmessages(conn, query):
-    message = conn.cursor()
-    message.execute(query)
+def readmessages():
+    connect_db()
+    message = connection.cursor()
+    message.execute("SELECT * FROM tiger.messages")
     view = message.fetchall()
     # for row in view: //will change after implement of the view_massages.html 
     #   print(row)
@@ -50,7 +49,7 @@ def contact_us():
 def log_in():
     if request.method == 'POST':
         return render_template('Home.html')
-    return render_template('/sign_up.html')
+  return render_template('/sign_up.html')
 
 
 @app.route('/log_out')
