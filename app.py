@@ -29,8 +29,8 @@ def readmessages():
     connect_db()
     message = connection.cursor()
     message.execute("SELECT * FROM tiger.messages")
-    view=message.fetchall()
-    # for row in view: //will change after implement of the view_massages.html 
+    view = message.fetchall()
+    # for row in view://will change after implement of the view_massages.html 
     #   print(row)
     return view
 
