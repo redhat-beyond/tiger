@@ -4,7 +4,6 @@ Instruction for spin VM and destroy:
 
 1. Install vagrant
 2. Install virtualbox
-<<<<<<< HEAD
 3. Run 'vagrant up [ubuntu|fedora|stage]'
 4. Run 'vagrant ssh [ubuntu|fedora|stage]'
 5. In the end of work, logout from the machine
@@ -16,12 +15,6 @@ Instruction for spin VM and destroy:
 - For ubuntu OS run 'vagrant up ubuntu'
 - When you ssh into machine specify the name of the machine [ubuntu|fedora|stage]'
 - When you destroy -f machine [ubuntu|fedora|stage]
-=======
-3. Run 'vagrant up [fedora OR ubuntu OR stage]'
-4. Run 'vagrant ssh [fedora OR ubuntu OR stage]'
-5. In the end of work, logout from the machine
-6. Run 'vagrant destroy -f [fedora OR ubuntu OR stage]'
->>>>>>> Update vagrantfile and now using Multi-Machine
 
 #Choosing OS
 

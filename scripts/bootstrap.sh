@@ -29,9 +29,6 @@ else
     
 
 fi
-
-
-
 pip3 install -r /vagrant/requirements.txt
 
     new_pw='LoginPass@@11223344'

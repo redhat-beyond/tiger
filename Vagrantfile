@@ -39,4 +39,3 @@ config.vm.define "stage" do |stage|
  end
 end
 end
-end
