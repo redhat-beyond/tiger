@@ -1,0 +1,31 @@
+h1 {
+    color: red;
+    text-align: center;
+    font-family: inherit;
+}
+
+body {
+    background-color: gainsboro;
+}
+
+p {
+    color: black;
+}
+
+.message {
+    float: left;
+    padding-left: 1%;
+
+}
+
+.bullet {
+    padding-top: 1%;
+    float: left;
+}
+
+.wholeMessage {
+    overflow: auto;
+    background-color: white;
+    border-radius: 20px;
+    margin: 1%;
+}
