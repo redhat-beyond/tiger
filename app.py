@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from flask import Flask, render_template, request, session
 
+
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "OCML3BRawWEUeaxcuKHLpw"
 

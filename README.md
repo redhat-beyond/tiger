@@ -11,3 +11,9 @@ Instruction for spin VM and destroy:
 # Our best practices:
 * Ask questions in the Slack group.
 * Scroll any command at the Git Guide and learn how to use it.
+
+
+# How to add tables to the Database
+* Edit the 'MYSQL_SCRIPT' section in the 'bootstrap.sh' file using your favorite editor.
+* Add the corresponding SQL command after the 'USE tiger' command.
+* Don't forget to save your changes with :wq!

@@ -1,0 +1,60 @@
+img {
+    height: 200px;
+    width: 250px;
+}
+
+main {
+    padding: inherit;
+    text-align: center;
+    color: black;
+    background-color: lightgrey;
+    font-family: arial;
+}
+
+header {
+    background-color: lightgrey;
+}
+
+nav {
+    clear: both;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: red;
+    color: whitesmoke;
+    float: none;
+}
+
+li {
+    margin-right: 50px;
+    float: left;
+    font-weight: bold;
+
+}
+
+li a {
+    display: block;
+    font-size: 16px;
+    font-family: arial;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 1em 1em;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: darkred;
+}
+
+.footer {
+    background-color: red;
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
+}
