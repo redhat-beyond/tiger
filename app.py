@@ -14,7 +14,7 @@ def connect_db():
     return connection
 
 
-def readmessages():
+def view_messages():
     connection = connect_db()
     message = connection.cursor()
     message.execute("SELECT * FROM tiger.messages")
