@@ -30,3 +30,6 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+#log file 
+log.log
