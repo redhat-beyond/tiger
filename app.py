@@ -1,7 +1,27 @@
 #!/usr/bin/env python3
+
 from flask import Flask, render_template, request
+import mysql
+# import app_functions
 
 app = Flask(__name__)
+
+
+def connect_db():
+    connection = mysql.connector.connect(
+            user='root', password='LoginPass@@11223344',
+            host='localhost', database='tiger')
+    return connection
+
+
+def view_messages():
+    connection = connect_db()
+    message = connection.cursor()
+    message.execute("SELECT * FROM tiger.messages")
+    view = message.fetchall()
+    # for row in view will change after implement of the view_massages.html
+    # print(row)
+    return view
 
 
 @app.route('/')
