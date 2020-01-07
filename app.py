@@ -3,7 +3,6 @@
 from flask import Flask, render_template, request
 import mysql
 import logging
-# import app_functions
 
 app = Flask(__name__)
 
@@ -32,8 +31,8 @@ def view_messages():
     message = connection.cursor()
     message.execute("SELECT * FROM tiger.messages")
     view = message.fetchall()
-    # for row in view will change after implement of the view_massages.html
-    # print(row)
+    for row in view:
+        print(row)
     return view
 
 
