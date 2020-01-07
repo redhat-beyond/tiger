@@ -50,7 +50,7 @@ def contact_us():
 def log_in():
     if request.method == 'POST':
         return render_template('Home.html')
-  return render_template('/sign_up.html')
+    return render_template('/sign_up.html')
 
 
 @app.route('/log_out')
