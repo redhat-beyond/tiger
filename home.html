@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/cssHome.css">
+
+
+</head>
+
+<body>
+    <header>
+        <a href="home.html" target=_self>
+            <img src="pic/logo_1.png" id="homeLogo" alt="RedHat&MTA">
+        </a>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#Register" title="">Register</a></li>
+            <li><a href="#Login" title="">Login</a></li>
+            <li><a href="#Contact" title="">Contact</a></li>
+            <li><a href="#aboutUs" title="Messages">Messages</a></li>
+
+        </ul>
+    </nav>
+
+    <main>
+
+        <form method="get"><br>
+            Title:<input type="text" name="title"><br>
+            Enter your message<br>
+            <textarea rows="4" cols="40" name="content">  </textarea> <br>
+            Sender Name: <input type="text" name="username"><br>
+            <p id="time">
+                <script>
+                    document.getElementById("time").innerHTML = Date();
+
+                </script><br>
+            </p>
+            <input type="submit" value="Send Message"> <input type="Reset" name="reset1" value="Reset">
+        </form><br>
+
+    </main>
+
+    <div class="footer">
+        <p>MTA Students </p>
+    </div>
+
+</body>
+
+</html>

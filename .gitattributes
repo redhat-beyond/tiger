@@ -1,3 +1,4 @@
 *.py -crlf
 *.sh -crlf
+*.txt -crlf
 Vagrantfile -crlf
