@@ -47,6 +47,20 @@
       {% block content %}
        <div class="main"> 
         <div class="sign_in">
+            <div class="clear">
+                <div style="background-color: azure;">
+                <!-- FLASH MESSAGE DISPLAY -->
+                {% with messages = get_flashed_messages() %} 
+                    {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                {% endwith %}
+                </div>
+            </div>
             <h2 class="in"> have an account? Sign-in here</h2>
             <form name="registration" method="post" action=" " >
                 <p>
