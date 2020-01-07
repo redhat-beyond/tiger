@@ -2,7 +2,7 @@
 
 from flask import Flask, render_template, request
 import mysql
-import loggin
+import logging
 # import app_functions
 
 app = Flask(__name__)
