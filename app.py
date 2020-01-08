@@ -5,8 +5,6 @@ import logging
 
 app = Flask(__name__)
 
-conn = connect_db('localhost', 'root', 'LoginPass@@11223344', 'messages')
-messages = readmessages(conn, "SELECT * FROM messages")
 
 def definedlog(fileHandler):
     logger = logging.getLogger(__name__)
@@ -32,8 +30,8 @@ def view_messages():
     message = connection.cursor()
     message.execute("SELECT * FROM tiger.messages")
     view = message.fetchall()
-    # for row in view: //will change after implement of the view_massages.html 
-    #   print(row)
+    for row in view:
+        print(row)
     return view
 
 
@@ -52,7 +50,7 @@ def contact_us():
 def log_in():
     if request.method == 'POST':
         return render_template('Home.html')
-    return render_template('/sign_up.html')
+  return render_template('/sign_up.html')
 
 
 @app.route('/log_out')
