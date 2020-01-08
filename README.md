@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # tiger 
 Instruction for spin VM and destroy: 
 1. Install vagrant 
@@ -19,6 +20,10 @@ Our best practices: Ask google questions and solving problems with a lot of pati
 =======
 # tiger
 
+=======
+# tiger
+
+>>>>>>> new push after liora review
 Instruction for spin VM and destroy:
 
 1. Install vagrant
@@ -59,4 +64,7 @@ Instruction for spin VM and destroy:
 - run those commands-
   vagrant plugin install --plugin-version 1.0.1 fog-ovirt
   vagrant plugin install vagrant-aws
+<<<<<<< HEAD
 >>>>>>> upstream/master
+=======
+>>>>>>> new push after liora review
