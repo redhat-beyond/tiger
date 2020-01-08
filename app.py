@@ -2,8 +2,8 @@
 from flask import Flask, render_template, request, session
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "OCML3BRawWEUeaxcuKHLpw"
 
+app.config["SECRET_KEY"] = "OCML3BRawWEUeaxcuKHLpw"
 
 @app.route('/')
 def Home():
@@ -17,6 +17,18 @@ def Home():
 def contact_us():
     return render_template('/contact_us.html')
 
+@app.route('/signup',methods=["GET", "POST"])
+def sign_up():
+	if request.method == "POST":
+		req = request.form
+		email = req.get("email")
+		password = req.get("password")
+		session["EMAIL"]=email
+		session["PASSWORD"]=password
+		print(session["EMAIL"])
+		print(session)
+		return render_template('Home.html',email=session["EMAIL"])
+	return render_template('/sign-up.html')
 
 @app.route('/log_in', methods=['GET', 'POST'])
 def log_in():
@@ -38,3 +50,4 @@ def log_out():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
+
