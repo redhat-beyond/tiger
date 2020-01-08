@@ -30,7 +30,7 @@ def view_messages():
     message = connection.cursor()
     message.execute("SELECT * FROM tiger.messages")
     view = message.fetchall()
-    for row in view: 
+    for row in view:
         print(row)
     return view
 
