@@ -6,6 +6,18 @@ import logging
 app = Flask(__name__)
 
 
+def definedlog(fileHandler):
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.ERROR)
+    handler = logging.FileHandler(fileHandler)
+    handler.setLevel(logging.ERROR)
+    formatter = logging.Formatter(
+            '%(asctime)s - %(name)s - %(levelname)s : %(message)s')
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    return logger
+
+
 def connect_db():
     connection = mysql.connector.connect(
             user='root', password='LoginPass@@11223344',
