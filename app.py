@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
 
 app = Flask(__name__)
 
@@ -19,6 +19,8 @@ def contact_us():
 def log_in():
     if request.method == 'POST':
         return render_template('Home.html')
+    if (1): # if username not found
+    	flash("whoops! username could not be found. please try again.") 
     return render_template('/sign_up.html')
 
 
