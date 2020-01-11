@@ -36,7 +36,7 @@ def view_messages():
 
 
 @app.route('/')
-def Home():
+def home():
     return render_template('Home.html')
 
 
