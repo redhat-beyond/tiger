@@ -39,6 +39,22 @@ def contact_us():
     return render_template('/contact_us.html')
 
 
+def authenticate_user(username, password):
+    if check_username(username):
+        if check_password(username, password):
+            return True
+        else:
+            # TODO: flash a message about incorrect password
+            return False
+        # TODO: flash a message about incorrect username
+    return False
+
+
+def check_password(username, password):
+    # TODO: check password against the db
+    pass
+
+
 @app.route('/messages_view')
 def messages_view():
     message = conn.cursor()
@@ -62,6 +78,7 @@ def log_in():
         req = request.form
         email = req.get("email")
         password = req.get("password")
+        # if authenticate_user(username, password):
         session["EMAIL"] = email
         session["PASSWORD"] = password
         return render_template('home.html', email=session["EMAIL"])
