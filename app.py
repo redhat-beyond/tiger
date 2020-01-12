@@ -29,8 +29,8 @@ conn = connect_db('localhost', 'root', 'LoginPass@@11223344', 'tiger')
 
 
 @app.route('/')
-def Home():
-    return render_template('Home.html')
+def home():
+    return render_template('home.html')
 
 
 @app.route('/contact_us')
@@ -50,14 +50,14 @@ def messages_view():
 # TODO write logic to this function
 def log_in():
     if request.method == 'POST':
-        return render_template('Home.html')
+        return render_template('home.html')
     return render_template('/sign_up.html')
 
 
 @app.route('/log_out')
 # TODO after seesion will be merge write this function
 def log_out():
-    return render_template('Home.html')
+    return render_template('home.html')
 
 
 if __name__ == '__main__':
