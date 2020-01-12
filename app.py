@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from flask import Flask, render_template, request
-import mysql
 import logging
 
 app = Flask(__name__)
@@ -19,7 +18,7 @@ def definedlog(fileHandler):
 
 
 def connect_db(host, user, password, database):
-    mysql.connector
+    import mysql.connector
     connection = mysql.connector.connect(
         user=user, password=password, host=host, database=database)
     return connection
