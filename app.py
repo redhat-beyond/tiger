@@ -18,21 +18,14 @@ def definedlog(fileHandler):
     return logger
 
 
-def connect_db():
+def connect_db(host, user, password, database):
+    mysql.connector
     connection = mysql.connector.connect(
-            user='root', password='LoginPass@@11223344',
-            host='localhost', database='tiger')
+        user=user, password=password, host=host, database=database)
     return connection
 
 
-def view_messages():
-    connection = connect_db()
-    message = connection.cursor()
-    message.execute("SELECT * FROM tiger.messages")
-    view = message.fetchall()
-    for row in view:
-        print(row)
-    return view
+conn = connect_db('localhost', 'root', 'LoginPass@@11223344', 'tiger')
 
 
 @app.route('/')
@@ -43,6 +36,14 @@ def Home():
 @app.route('/contact_us')
 def contact_us():
     return render_template('/contact_us.html')
+
+
+@app.route('/messages_view')
+def messages_view():
+    message = conn.cursor()
+    message.execute("SELECT * FROM tiger.messages")
+    view = message.fetchall()
+    return render_template('/messages_view.html', view=view)
 
 
 @app.route('/log_in', methods=['GET', 'POST'])
