@@ -33,7 +33,7 @@ pip3 install -r /vagrant/requirements.txt
     CREATE DATABASE tiger;
     USE tiger;
     CREATE TABLE users(username VARCHAR(20), password VARCHAR(100) NOT NULL, create_date TIMESTAMP NOT NULL, PRIMARY KEY(username));
-    CREATE TABLE messages(username VARCHAR(20),create_date TIMESTAMP NOT NULL,content VARCHAR(100) NOT NULL,FOREIGN KEY(username) REFERENCES users(username));
+    CREATE TABLE messages(username VARCHAR(20),title VARCHAR(100),create_date TIMESTAMP NOT NULL,content VARCHAR(100) NOT NULL,FOREIGN KEY(username) REFERENCES users(username));
     SHOW TABLES;
     DESCRIBE users;
     DESCRIBE messages;
