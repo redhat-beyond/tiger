@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('Home.html')
+    return render_template('home.html')
 
 
 @app.route('/contact_us')
@@ -18,14 +18,14 @@ def contact_us():
 # TODO write logic to this function
 def log_in():
     if request.method == 'POST':
-        return render_template('Home.html')
+        return render_template('home.html')
     return render_template('/sign_up.html')
 
 
 @app.route('/log_out')
 # TODO after seesion will be merge write this function
 def log_out():
-    return render_template('Home.html')
+    return render_template('home.html')
 
 
 if __name__ == '__main__':
