@@ -1,7 +1,38 @@
 #!/usr/bin/env python3
 from flask import Flask, render_template, request
+import mysql
+import logging
 
 app = Flask(__name__)
+
+
+def definedlog(fileHandler):
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.ERROR)
+    handler = logging.FileHandler(fileHandler)
+    handler.setLevel(logging.ERROR)
+    formatter = logging.Formatter(
+            '%(asctime)s - %(name)s - %(levelname)s : %(message)s')
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    return logger
+
+
+def connect_db():
+    connection = mysql.connector.connect(
+            user='root', password='LoginPass@@11223344',
+            host='localhost', database='tiger')
+    return connection
+
+
+def view_messages():
+    connection = connect_db()
+    message = connection.cursor()
+    message.execute("SELECT * FROM tiger.messages")
+    view = message.fetchall()
+    for row in view:
+        print(row)
+    return view
 
 
 @app.route('/')
