@@ -45,6 +45,7 @@ def Home():
 	else:
 		return render_template('Home.html')
 
+
 def home():
     return render_template('home.html')
 
