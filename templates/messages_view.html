@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width,initial-scale=1" name="viewport">
+        <meta content="description" name="description">
+        <meta name="google" content="notranslate" />
+        <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
+        <!-- Disable tap highlight on IE -->
+        <meta name="msapplication-tap-highlight" content="no">
+
+        <title>Tiger</title>
+
+        <link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='style.css') }}">
+    </head>
+
+
+    <body>
+        {% extends "layout.html" %}
+        {% block content %}
+
+        <h1>View Messages</h1>
+
+        <!-- Example to delete -->
+
+        <p> This is an example </p>
+        <div class="wholeMessage">
+            <div class="bullet">
+                <img src="{{ url_for('static', filename='logo.jpg') }}" height="20" width="30">
+            </div>
+            <div class="message">
+                <p><b><u>Sapir Hen</u></b></p>
+                <p>Hi everyone, this is where we are goning to see our messages! </p>
+                <p><i>Sun Dec 22 16:00:00 2019</i></p>
+            </div>
+        </div>
+        <div class="wholeMessage">
+            <div class="bullet">
+                <img src="{{ url_for('static', filename='logo.jpg') }}" height="20" width="30">
+            </div>
+
+            <div>
+                <div class="message">
+                    <p><b><u>Tomer Cohen</u></b></p>
+                    <p>Wow Sapir it looks amazing </p>
+                    <p><i>Sun Dec 22 16:31:19 2019</i></p>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+
+        {% for message in messages %}
+        <div class="wholeMessage">
+            <div class="bullet">
+                <img src="{{ url_for('static', filename='logo.jpg') }}" height="20" width="30">
+            </div>
+            <div class="message">
+                <p><b><u>{{message['tital']}}</u></b></p>
+                <p>{{message['content']}} </p>
+                <p><i>{{message['username']}}, {{['create_date']}}</i></p>
+            </div>
+        </div>
+        {% endfor %}
+
+        {% endblock %}
+
+    </body>
+
+</html>
