@@ -32,9 +32,9 @@ pip3 install -r /vagrant/requirements.txt
     mysql -u root -p"$new_pw" <<MYSQL_SCRIPT
     CREATE DATABASE tiger;
     USE tiger;
-    CREATE TABLE users(username VARCHAR(20), password VARCHAR(100) NOT NULL, create_date TIMESTAMP NOT NULL, PRIMARY KEY(username));
-    CREATE TABLE messages(username VARCHAR(20),create_date TIMESTAMP NOT NULL,content VARCHAR(100) NOT NULL,FOREIGN KEY(username) REFERENCES users(username));
-    SHOW TABLES;
+    create table users(username VARCHAR(25) NOT NULL, password VARCHAR(100) NOT NULL, create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, PRIMARY KEY(username));
+    create table messages(message_id int NOT NULL AUTO_INCREMENT, username VARCHAR(25) NOT NULL, content text,
+    create_date TIMESTAMP  DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, primary key(message_id), foreign key(username) references users(username));
     DESCRIBE users;
     DESCRIBE messages;
 MYSQL_SCRIPT
