@@ -50,18 +50,17 @@ def messages_view():
 
 @app.route('/log_in', methods=['GET', 'POST'])
 def log_in():
-	if request.method == "POST":
-		req = request.form
-		email = req.get("email")
-		password = req.get("password")
-		session["EMAIL"]=email
-		session["PASSWORD"]=password
-		return render_template('Home.html',email=session["EMAIL"])
-	return render_template('/sign_up.html')
+    if request.method == "POST":
+        req = request.form
+        email = req.get("email")
+        password = req.get("password")
+        session["EMAIL"]=email
+        session["PASSWORD"]=password
+        return render_template('Home.html',email=session["EMAIL"])
+    return render_template('/sign_up.html')
 
 
 @app.route('/log_out')
-# TODO after seesion will be merge write this function
 def log_out():
     return render_template('home.html')
 
