@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from flask import Flask, render_template, request, session
-import mysql
 import logging
 from mysql import connector
 
@@ -15,7 +14,7 @@ def definedlog(fileHandler):
     handler = logging.FileHandler(fileHandler)
     handler.setLevel(logging.ERROR)
     formatter = logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s : %(message)s')
+        '%(asctime)s - %(name)s - %(levelname)s : %(message)s')
     handler.setFormatter(formatter)
     logger.addHandler(handler)
     return logger
@@ -46,6 +45,15 @@ def messages_view():
     message.execute("SELECT * FROM tiger.messages ORDER BY create_date DESC")
     view = message.fetchall()
     return render_template('/messages_view.html', view=view)
+
+
+def search_messages(conn):
+    filter = conn.cursor()
+    word = input()
+    filter.execute("SELECT * FROM tiger.messages WHERE content LIKE % s" +
+                   "ORDER BY create_date DESC", (" % {} % ".format(word),))
+    filtering = filter.fetchall()
+    return filtering
 
 
 @app.route('/log_in', methods=['GET', 'POST'])
