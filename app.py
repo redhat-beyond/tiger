@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
+import mysql
 import logging
 from mysql import connector
 
 app = Flask(__name__)
+
+app.config["SECRET_KEY"] = "OCML3BRawWEUeaxcuKHLpw"
 
 
 def definedlog(fileHandler):
@@ -46,11 +49,15 @@ def messages_view():
 
 
 @app.route('/log_in', methods=['GET', 'POST'])
-# TODO write logic to this function
 def log_in():
-    if request.method == 'POST':
-        return render_template('home.html')
-    return render_template('/sign_up.html')
+	if request.method == "POST":
+		req = request.form
+		email = req.get("email")
+		password = req.get("password")
+		session["EMAIL"]=email
+		session["PASSWORD"]=password
+		return render_template('Home.html',email=session["EMAIL"])
+	return render_template('/sign_up.html')
 
 
 @app.route('/log_out')
