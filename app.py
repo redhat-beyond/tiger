@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from flask import Flask, render_template, request
 import logging
+from mysql import connector
 
 app = Flask(__name__)
 
@@ -18,8 +19,7 @@ def definedlog(fileHandler):
 
 
 def connect_db(host, user, password, database):
-    import mysql.connector
-    connection = mysql.connector.connect(
+    connection = connector.connect(
         user=user, password=password, host=host, database=database)
     return connection
 
@@ -40,7 +40,7 @@ def contact_us():
 @app.route('/messages_view')
 def messages_view():
     message = conn.cursor()
-    message.execute("SELECT * FROM tiger.messages")
+    message.execute("SELECT * FROM tiger.messages ORDER BY create_date DESC")
     view = message.fetchall()
     return render_template('/messages_view.html', view=view)
 
