@@ -12,7 +12,7 @@ def definedlog(fileHandler):
     handler = logging.FileHandler(fileHandler)
     handler.setLevel(logging.ERROR)
     formatter = logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s : %(message)s')
+        '%(asctime)s - %(name)s - %(levelname)s : %(message)s')
     handler.setFormatter(formatter)
     logger.addHandler(handler)
     return logger
@@ -20,8 +20,8 @@ def definedlog(fileHandler):
 
 def connect_db():
     connection = mysql.connector.connect(
-            user='root', password='LoginPass@@11223344',
-            host='localhost', database='tiger')
+        user='root', password='LoginPass@@11223344',
+        host='localhost', database='tiger')
     return connection
 
 
@@ -63,3 +63,24 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0')
 
 
+def check_username(username):
+    connection = connect_db()
+    maulers = connection.cursor()
+    Fender = "SELECT * FROM users WHERE username  =" + username
+    maulers.execute(Fender)
+    result = maulers.fetchall()
+    if not result:
+        # the user doesnt exist
+        return False
+    else:
+        # the user exists
+        return True
+
+
+@app.route('/check')
+def check():
+    if check_username('sss'):
+        item = "working"
+    else:
+        item = "no"
+    return item
