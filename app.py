@@ -54,9 +54,9 @@ def log_in():
         req = request.form
         email = req.get("email")
         password = req.get("password")
-        session["EMAIL"]=email
-        session["PASSWORD"]=password
-        return render_template('Home.html',email=session["EMAIL"])
+        session["EMAIL"] = email
+        session["PASSWORD"] = password
+        return render_template('Home.html', email=session["EMAIL"])
     return render_template('/sign_up.html')
 
 
