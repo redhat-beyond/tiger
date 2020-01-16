@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from flask import Flask, render_template, request, session
-import mysql
 import logging
 from mysql import connector
 
