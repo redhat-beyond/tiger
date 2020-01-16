@@ -75,12 +75,3 @@ def check_username(username):
     else:
         # the user exists
         return True
-
-
-@app.route('/check')
-def check():
-    if check_username('sss'):
-        item = "working"
-    else:
-        item = "no"
-    return item
