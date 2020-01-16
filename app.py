@@ -75,3 +75,16 @@ def log_out():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
+
+
+def check_username(username):
+    maulers = conn.cursor()
+    Fender = "SELECT * FROM users WHERE username  =" + username
+    maulers.execute(Fender)
+    result = maulers.fetchall()
+    if not result:
+        # the user doesnt exist
+        return False
+    else:
+        # the user exists
+        return True
