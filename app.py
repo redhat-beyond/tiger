@@ -21,16 +21,9 @@ def definedlog(fileHandler):
     return logger
 
 
-<<<<<<< HEAD
-def connect_db():
-    connection = mysql.connector.connect(
-        user='root', password='LoginPass@@11223344',
-        host='localhost', database='tiger')
-=======
 def connect_db(host, user, password, database):
     connection = connector.connect(
         user=user, password=password, host=host, database=database)
->>>>>>> master
     return connection
 
 
@@ -77,8 +70,7 @@ if __name__ == '__main__':
 
 
 def check_username(username):
-    connection = connect_db()
-    maulers = connection.cursor()
+    maulers = conn.cursor()
     Fender = "SELECT * FROM users WHERE username  =" + username
     maulers.execute(Fender)
     result = maulers.fetchall()
