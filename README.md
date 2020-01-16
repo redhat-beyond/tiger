@@ -46,4 +46,3 @@ Instruction for spin VM and destroy:
 - All the static files such as: CSS, Images need to be locate in:
 tiger/static
 - Html files need to be locate in:
-tiger/templates
