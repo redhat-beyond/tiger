@@ -69,8 +69,6 @@ def check_password(username, password):
     pass
 
 
-<<<<<<< HEAD
-=======
 @app.route('/messages_view', methods=['GET', 'POST'])
 def messages_view():
     message = conn.cursor()
@@ -85,7 +83,6 @@ def messages_view():
     return render_template('/messages_view.html', view=view)
 
 
->>>>>>> fix conflicts
 @app.route('/log_in', methods=['GET', 'POST'])
 def log_in():
     if request.method == "POST":
