@@ -88,3 +88,17 @@ def check_username(username):
     else:
         # the user exists
         return True
+
+
+def check_password(username, password):
+    maulers = conn.cursor()
+    h = hashlib.md5(password.encode())
+    Fender = "SELECT * FROM users WHERE username  =" + username + "and password=" + h
+    maulers.execute(Fender)
+    result = maulers.fetchall()
+    if not result:
+        # the user doesnt exist
+        return False
+    else:
+        # the user exists
+        return True
