@@ -39,6 +39,13 @@
             .clear{
                 clear:both;
             }
+            .flash={
+                background-color: azure;
+            }
+            .warning{
+                color: red;    
+            }
+                
         </style>
         <title> Sign-in </title>
     </head>
@@ -47,6 +54,15 @@
       {% block content %}
        <div class="main"> 
         <div class="sign_in">
+            <div class="flash warning">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            {{message}}
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
             <h2 class="in"> have an account? Sign-in here</h2>
             <form name="registration" method="post" action=" " >
                 <p>
