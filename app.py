@@ -83,16 +83,6 @@ def messages_view():
     return render_template('/messages_view.html', view=view)
 
 
-@app.route('/messages_view/:word')
-def search_messages(word):
-    filter = conn.cursor()
-    word = input()
-    filter.execute("SELECT * FROM tiger.messages WHERE content LIKE % s" +
-                   "ORDER BY create_date DESC", (" % {} % ".format(word),))
-    filtering = filter.fetchall()
-    return render_template('/messages_view.html', view=filtering)
-
-
 @app.route('/log_in', methods=['GET', 'POST'])
 def log_in():
     if request.method == "POST":
