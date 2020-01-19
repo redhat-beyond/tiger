@@ -69,21 +69,14 @@ def check_password(username, password):
     pass
 
 
-@app.route('/messages_view')
-def messages_view():
-    message = conn.cursor()
-    message.execute("SELECT * FROM tiger.messages ORDER BY create_date DESC")
-    view = message.fetchall()
-    return render_template('/messages_view.html', view=view)
-
-
-def search_messages(conn):
+@app.route('/messages_view/:word')
+def search_messages(word):
     filter = conn.cursor()
     word = input()
     filter.execute("SELECT * FROM tiger.messages WHERE content LIKE % s" +
                    "ORDER BY create_date DESC", (" % {} % ".format(word),))
     filtering = filter.fetchall()
-    return filtering
+    return render_template('/messages_view.html', view=filtering)
 
 
 @app.route('/log_in', methods=['GET', 'POST'])
