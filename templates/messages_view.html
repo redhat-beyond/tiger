@@ -35,10 +35,10 @@
 			<h2> There are no messages to display </h2>
 	        {% endif %}
 
-               {% for row in view %}
+        {% for row in view %}
         <div class="wholeMessage">
             <div class="bullet">
-                <img src="{{ url_for('static\pic', filename='logo.jpg') }}" height="20" width="30">
+                <img src="{{ url_for('static', filename='logo.jpg') }}" height="20" width="30">
             </div>
             <div class="message">
                 <p><b><u>{{row[1]}}</u></b></p>
