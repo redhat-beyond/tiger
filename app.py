@@ -59,7 +59,7 @@ def log_in():
         password = req.get("password")
         session["EMAIL"] = email
         session["PASSWORD"] = password
-        return render_template('Home.html', email=session["EMAIL"])
+        return render_template('home.html', email=session["EMAIL"])
     return render_template('/sign_up.html')
 
 

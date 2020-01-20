@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="he">
 
@@ -46,3 +47,20 @@
 </body>
 
 </html>
+{% extends "layout.html" %}
+{% block title %} homePage {% endblock %}
+{% block content %}
+    <form method="get"><br>
+        Title:<input type="text" name="title"><br>
+        Enter your message<br>
+        <textarea rows="4" cols="40" name="content">  </textarea> <br>
+        Sender Name: <input type="text" name="username"><br>
+        <p id="time">
+            <script>
+                document.getElementById("time").innerHTML = Date();
+
+            </script><br>
+        </p>
+        <input type="submit" value="Send Message"> <input type="Reset" name="reset1" value="Reset">
+    </form><br>
+{% endblock %}
