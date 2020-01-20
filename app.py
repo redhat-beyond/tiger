@@ -69,6 +69,23 @@ def check_password(username, password):
     pass
 
 
+<<<<<<< HEAD
+=======
+@app.route('/messages_view', methods=['GET', 'POST'])
+def messages_view():
+    message = conn.cursor()
+    if request.method == "POST":
+        word = request.form['word']
+        message.execute("SELECT * FROM tiger.messages WHERE content LIKE %s" +
+                        "ORDER BY create_date DESC", ("%{}%".format(word),))
+        view = message.fetchall()
+        return render_template('/messages_view.html', view=view)
+    message.execute("SELECT * FROM tiger.messages ORDER BY create_date DESC")
+    view = message.fetchall()
+    return render_template('/messages_view.html', view=view)
+
+
+>>>>>>> fix conflicts
 @app.route('/log_in', methods=['GET', 'POST'])
 def log_in():
     if request.method == "POST":
