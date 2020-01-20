@@ -67,6 +67,19 @@ def log_in():
         return render_template('home.html', email=session["EMAIL"])
     return render_template('/sign_up.html')
 
+@app.route('/send_message',methods=['GET', 'POST'])
+def send_message():
+    if request.method == 'POST':
+        userDetails = request.form
+        username = userDetails['username']
+        msg = userDetails['content']
+        mycursor = conn.cursor()
+        sql = "INSERT INTO messages (username, content) VALUES (%s, %s)"
+        val = (username, msg)
+        mycursor.execute(sql, val)
+        conn.commit()
+    return render_template('/send_message.html')
+
 
 @app.route('/log_out')
 def log_out():

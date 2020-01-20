@@ -38,6 +38,7 @@ pip3 install -r /vagrant/requirements.txt
     create table users(username VARCHAR(25) NOT NULL, password VARCHAR(100) NOT NULL, create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, PRIMARY KEY(username));
     create table messages(message_id int NOT NULL AUTO_INCREMENT, username VARCHAR(25) NOT NULL, content text,
     create_date TIMESTAMP  DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, primary key(message_id), foreign key(username) references users(username));
+    INSERT into users(username,password) VALUES('dummy','1234');
     DESCRIBE users;
     DESCRIBE messages;
 MYSQL_SCRIPT
