@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 {% block title %} homePage {% endblock %}
 {% block content %}
-<img src="{{  url_for('static', filename='pic/welcome.jpeg') }}" alt="Welcome!">
+<img src="https://media.giphy.com/media/OkJat1YNdoD3W/source.gif">
 <p></p><p></p>
 <h1>Welcome to The Academic College of Tel Aviv-Yaffo chat-App!!!</h1>
 <h3>This app will allow you to send a message and view it. </h3>
 <h3>You can view our app's messages whenever you want </h3>
 <h4>If you would like to use our app, you need to follow these steps:</h4>
-<p><b>1. Register / Log in</b></p>
+<p><b>1. <a href="{{ url_for('log_in') }}">Register </a> / <a href="{{ url_for('log_in') }}">Log in</a></b></p>
 <p><b>2. Send a message </b></p>
 <h3>If you would like to read about our venture, you can click on this link. </h3>
 <h1>Have Fun!</h1>
