@@ -76,12 +76,12 @@ def search_messages(conn):
 def log_in():
     if request.method == "POST":
         req = request.form
-        email = req.get("email")
+        username = req.get("username")
         password = req.get("password")
         # if authenticate_user(username, password):
-        session["EMAIL"] = email
+        session["USERNAME"] = username
         session["PASSWORD"] = password
-        return render_template('home.html', email=session["EMAIL"])
+        return render_template('home.html', username=session["USERNAME"])
     return render_template('/sign_up.html')
 
 
