@@ -31,7 +31,7 @@ conn = connect_db('localhost', 'root', 'LoginPass@@11223344', 'tiger')
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('/home.html')
 
 
 @app.route('/contact_us')
@@ -105,7 +105,7 @@ def log_out():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0')
 
 
 def check_username(username):
