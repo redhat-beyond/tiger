@@ -1,3 +1,5 @@
+* {background-color: lightgrey;}
+
 img {
     height: 200px;
     width: 250px;
@@ -7,12 +9,7 @@ main {
     padding: inherit;
     text-align: center;
     color: black;
-    background-color: lightgrey;
     font-family: arial;
-}
-
-header {
-    background-color: lightgrey;
 }
 
 nav {
