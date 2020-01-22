@@ -38,7 +38,8 @@ def home():
 def contact_us():
     return render_template('/contact_us.html')
 
-@app.route('/send_message',methods=['GET', 'POST'])
+
+@app.route('/send_message', methods=['GET', 'POST'])
 def send_message():
     if request.method == 'POST':
         userDetails = request.form
@@ -50,7 +51,6 @@ def send_message():
         mycursor.execute(sql, val)
         conn.commit()
     return render_template('/send_message.html')
-
 
 
 def authenticate_user(username, password):
@@ -119,3 +119,11 @@ def check_username(username):
     else:
         # the user exists
         return True
+
+
+def incorrect_password():
+    if request.method == 'POST':
+        return render_template('Home.html')
+    if password is not correct:
+        flash("Oh no! The password you entered is incorrect. Please try again.")
+        return render_template('/incorrectPassword.html')
