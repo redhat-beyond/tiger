@@ -14,6 +14,7 @@ main {
 
 nav {
     clear: both;
+    background-color: red;
 }
 
 ul {
@@ -22,7 +23,7 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: red;
-    color: whitesmoke;
+    color: black;
     float: none;
 }
 
@@ -55,3 +56,8 @@ li a:hover {
     font-size: 12px;
     padding: 15px;
 }
+
+
+a.one:link {color:white; background-color:red;}
+a.one:visited {color:white; background-color:red;}
+a.one:hover {color:white; background-color:red;}
