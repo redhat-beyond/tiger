@@ -41,8 +41,9 @@ Instruction for spin VM and destroy:
   vagrant plugin install --plugin-version 1.0.1 fog-ovirt
   vagrant plugin install vagrant-aws
 
-#Static files:
-All the static files such as: CSS, Images need to be locate in:
+# Static files:
+
+- All the static files such as: CSS, Images need to be locate in:
 tiger/static
-Html files need to be locate in:
+- Html files need to be locate in:
 tiger/templates
