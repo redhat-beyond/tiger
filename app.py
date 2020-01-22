@@ -38,7 +38,8 @@ def home():
 def contact_us():
     return render_template('/contact_us.html')
 
-@app.route('/send_message',methods=['GET', 'POST'])
+
+@app.route('/send_message', methods=['GET', 'POST'])
 def send_message():
     if request.method == 'POST':
         userDetails = request.form
@@ -50,7 +51,6 @@ def send_message():
         mycursor.execute(sql, val)
         conn.commit()
     return render_template('/send_message.html')
-
 
 
 def authenticate_user(username, password):
