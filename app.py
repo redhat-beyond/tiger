@@ -122,27 +122,5 @@ def check_username(username):
         return True
 
 
-def check_password(username, password):
-    maulers = conn.cursor()
-<<<<<<< HEAD
-    Fender = "SELECT password FROM users WHERE username  =" + username
-    maulers.execute(Fender)
-    result = maulers.fetchall()
 
-    if sha256_crypt.verify(password, result):
-        return True
-    else:
-        return False
-
-=======
-    h = hashlib.md5(password.encode())
-    Fender = "SELECT * FROM users WHERE username  =" + username + "and password=" + h
-    maulers.execute(Fender)
-    result = maulers.fetchall()
-    if not result:
-        # the user doesnt exist
-        return False
-    else:
-        # the user exists
-        return True
 >>>>>>> d422f8e1322c5c5ddf76c8b33a2eaf41aa30e687
