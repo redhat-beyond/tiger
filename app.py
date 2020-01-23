@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request, session
 import logging
 from mysql import connector
+from passlib.hash import sha256_crypt
 
 app = Flask(__name__)
 
@@ -119,3 +120,16 @@ def check_username(username):
     else:
         # the user exists
         return True
+    
+
+def check_password(username, password):
+    maulers = conn.cursor()
+    Fender = "SELECT password FROM users WHERE username  =" + username
+    maulers.execute(Fender)
+    result = maulers.fetchall()
+    if sha256_crypt.verify(password, result):
+        return True
+    else:
+        return False
+
+
