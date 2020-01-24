@@ -7,7 +7,8 @@ from passlib.hash import sha256_crypt
 
 app = Flask(__name__)
 
-app.debug = True
+# !--- For debugging switch to true ---!
+app.debug = False
 
 app.config["SECRET_KEY"] = "OCML3BRawWEUeaxcuKHLpw"
 toolbar = DebugToolbarExtension(app)
