@@ -122,7 +122,8 @@ def log_in():
             return redirect(url_for('send_message'))
         else:
             return redirect(url_for('log_in'))
-        return render_template('send_message.html', username=session["USERNAME"])
+        return render_template('send_message.html',
+                               username=session["USERNAME"])
     return render_template('/sign_in.html')
 
 
