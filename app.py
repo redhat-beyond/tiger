@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from flask import Flask, render_template, request, session
+from passlib.hash import sha256_crypt
 import logging
 from mysql import connector
 
@@ -27,6 +28,21 @@ def connect_db(host, user, password, database):
 
 
 conn = connect_db('localhost', 'root', 'LoginPass@@11223344', 'tiger')
+
+
+@app.route('/sign_up', methods=['GET', 'POST'])
+def sign_up():
+    if request.method == 'POST':
+        userDetails = request.form
+        username = userDetails['username']
+        password =  sha256_crypt.encrypt("password")
+        password = userDetails['password']
+        mycursor = conn.cursor()
+        sql = "INSERT INTO users (username, password) VALUES (%s, %s)"
+        val = (username, password)
+        mycursor.execute(sql, val)
+        conn.commit()
+    return render_template('/sign_up.html')
 
 
 @app.route('/')
