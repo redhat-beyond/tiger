@@ -1,46 +1,59 @@
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="description" name="description" />
+    <meta name="google" content="notranslate" />
+    <meta
+      content="Mashup templates have been developped by Orson.io team"
+      name="author"
+    />
 
-    <head>
-        <meta charset="UTF-8">
-        <meta content="IE=edge" http-equiv="X-UA-Compatible">
-        <meta content="width=device-width,initial-scale=1" name="viewport">
-        <meta content="description" name="description">
-        <meta name="google" content="notranslate" />
-        <meta content="Mashup templates have been developped by Orson.io team" name="author">
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no" />
 
-        <!-- Disable tap highlight on IE -->
-        <meta name="msapplication-tap-highlight" content="no">
+    <title>Tiger</title>
 
-        <title>Tiger</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href=" {{ url_for('static',filename='style.css') }}"
+    />
+  </head>
 
-        <link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='style.css') }}">
-    </head>
+  <body>
+    {% extends "layout.html" %} {% block content %}
 
+    <h1 style="color:black;">Send Message</h1>
+    {% if not session.get("USERNAME") %}
+    <h1>Please register or log in</h1>
+    {% else %}
+    <form method="POST">
+      <br />
+      Enter your user name
+      <input
+        type="text"
+        name="username"
+        readonly="readonly"
+        value='{{ session["USERNAME"] }}'
+      />
+      <br />
+      Enter your message<br />
+      <textarea rows="4" cols="40" name="content"> </textarea> <br />
+      <p id="time">
+        <script>
+          document.getElementById("time").innerHTML = Date();
+        </script>
+        <br />
+      </p>
+      <input type="submit" value="Send Message" />
+      <input type="Reset" name="reset1" value="Reset" />
+    </form>
+    {% endif %}
+    <br />
 
-    <body>
-        {% extends "layout.html" %}
-        {% block content %}
-
-        <h1>Send Message</h1>
-    <form method="POST"><br>
-        Enter your email <input type="text" name="username"/> <br>
-        Enter your message<br>
-        <textarea rows="4" cols="40" name="content">  </textarea> <br>
-        <p id="time">
-            <script>
-                document.getElementById("time").innerHTML = Date();
-
-            </script><br>
-        </p>
-        <input type="submit" value="Send Message"> <input type="Reset" name="reset1" value="Reset">
-    </form><br>
-
-
-
-        {% endblock %}
-
-    </body>
-
+    {% endblock %}
+  </body>
 </html>
