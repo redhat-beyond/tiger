@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 from flask import Flask, render_template, request, session
 from passlib.hash import sha256_crypt
 import logging
@@ -35,13 +35,13 @@ def sign_up():
     if request.method == 'POST':
         userDetails = request.form
         username = userDetails['username']
-        password =  sha256_crypt.encrypt("password")
-        password = userDetails['password']
+        password = sha256_crypt.encrypt(userDetails["password"])
         mycursor = conn.cursor()
         sql = "INSERT INTO users (username, password) VALUES (%s, %s)"
         val = (username, password)
         mycursor.execute(sql, val)
         conn.commit()
+        return render_template('/home.html')
     return render_template('/sign_up.html')
 
 
