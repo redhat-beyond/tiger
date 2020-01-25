@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, flash
 import logging
 from mysql import connector
 
@@ -112,6 +112,7 @@ def check_username(username):
     result = maulers.fetchall()
     if not result:
         # the user doesnt exist
+        flash("WHOOPS! username could not be found.")
         return False
     else:
         # the user exists
