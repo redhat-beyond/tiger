@@ -116,3 +116,11 @@ def check_username(username):
     else:
         # the user exists
         return True
+
+
+def incorrect_password():
+    if request.method == 'POST':
+        return render_template('Home.html')
+    if password is not correct:
+        flash("Oh no! The password you entered is incorrect. Please try again.")
+        return render_template('/incorrectPassword.html')
