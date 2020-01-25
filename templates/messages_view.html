@@ -14,7 +14,7 @@
 
         <title>Tiger</title>
 
-        <link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='style.css') }}">
+        <link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.css') }}">
     </head>
 
 
@@ -23,12 +23,22 @@
         {% block content %}
 
         <h1>View Messages</h1>
+		
+		<section>
+			<form method="post" action="">
+				<input type="search" name="word" placeholder="Insert a word to search">
+				<button type="submit">Search</button>
+			</form>
+		</section>
+		
+		{% if view|length == 0 %}
+			<h2> There are no messages to display </h2>
+	    {% endif %}
 
-
-               {% for row in view %}
+        {% for row in view %}
         <div class="wholeMessage">
             <div class="bullet">
-                <img src="{{ url_for('static', filename='logo.jpg') }}" height="20" width="30">
+                <img id="thumbnail" src="../static/pic/logo.jpg" >
             </div>
             <div class="message">
                 <p><b><u>{{row[1]}}</u></b></p>

@@ -31,7 +31,7 @@ conn = connect_db('localhost', 'root', 'LoginPass@@11223344', 'tiger')
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('/home.html')
 
 
 @app.route('/contact_us')
@@ -39,21 +39,48 @@ def contact_us():
     return render_template('/contact_us.html')
 
 
-@app.route('/messages_view')
+@app.route('/send_message', methods=['GET', 'POST'])
+def send_message():
+    if request.method == 'POST':
+        userDetails = request.form
+        username = userDetails['username']
+        msg = userDetails['content']
+        mycursor = conn.cursor()
+        sql = "INSERT INTO messages (username, content) VALUES (%s, %s)"
+        val = (username, msg)
+        mycursor.execute(sql, val)
+        conn.commit()
+    return render_template('/send_message.html')
+
+
+def authenticate_user(username, password):
+    if check_username(username):
+        if check_password(username, password):
+            return True
+        else:
+            # TODO: flash a message about incorrect password
+            return False
+        # TODO: flash a message about incorrect username
+    return False
+
+
+def check_password(username, password):
+    # TODO: check password against the db
+    pass
+
+
+@app.route('/messages_view', methods=['GET', 'POST'])
 def messages_view():
     message = conn.cursor()
+    if request.method == "POST":
+        word = request.form['word']
+        message.execute("SELECT * FROM tiger.messages WHERE content LIKE %s" +
+                        "ORDER BY create_date DESC", ("%{}%".format(word),))
+        view = message.fetchall()
+        return render_template('/messages_view.html', view=view)
     message.execute("SELECT * FROM tiger.messages ORDER BY create_date DESC")
     view = message.fetchall()
     return render_template('/messages_view.html', view=view)
-
-
-def search_messages(conn):
-    filter = conn.cursor()
-    word = input()
-    filter.execute("SELECT * FROM tiger.messages WHERE content LIKE % s" +
-                   "ORDER BY create_date DESC", (" % {} % ".format(word),))
-    filtering = filter.fetchall()
-    return filtering
 
 
 @app.route('/log_in', methods=['GET', 'POST'])
@@ -62,9 +89,10 @@ def log_in():
         req = request.form
         email = req.get("email")
         password = req.get("password")
+        # if authenticate_user(username, password):
         session["EMAIL"] = email
         session["PASSWORD"] = password
-        return render_template('Home.html', email=session["EMAIL"])
+        return render_template('home.html', email=session["EMAIL"])
     return render_template('/sign_up.html')
 
 

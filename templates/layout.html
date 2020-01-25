@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/cssHome.css') }}">
+   {% block head %}
+   <title>{% block title %}{% endblock %} - ChatApp </title>
+   {% endblock %}
+
+</head>
+
+<body>
+    <header>
+        <a href="{{ url_for('home') }}" target=_self>
+            <img src="{{ url_for('static', filename='pic/logo_1.png') }}" id="homeLogo" alt="RedHat&MTA">
+        </a>
+    </header>
+   <nav>
+        <ul>
+            <li><a class="one" href="{{url_for('home') }}"> Home Page</a></li>
+			<li><a class="one" href="{{url_for('log_in') }}"> Log-In</a></li>
+			<li><a class="one" href="{{url_for('messages_view') }}"> View Messages</a></li>
+            <li><a class="one" href="{{url_for('send_message') }}"> Send Message</a></li>
+
+        </ul>
+    </nav> 
+
+    <main> 
+        {% block content %}{% endblock %}
+    </main>
+
+    <div class="footer">
+        <h2>&copy; Copyright 2020 by <a href="https://www.facebook.com/141518342586502/posts/3159131667491806/">MTA Students</a></h2>
+    </div>
+    
+</body>
+
+</html>
