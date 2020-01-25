@@ -1,4 +1,6 @@
-* {background-color: lightgrey;}
+body {
+    background-color: lightgrey;
+}
 
 img {
     height: 200px;
